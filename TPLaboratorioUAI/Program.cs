@@ -14,7 +14,7 @@ namespace TPLaboratorioUAI
 //<<<<<<< HEAD
             Application.Run(new frmPrincipal()); 
 //=======
-  //          Application.Run(new FormMDI()); //HOLA
+  //          Application.Run(new FormMDI()); //HOLA/
 //>>>>>>> 5b6f8e6ed8d7c65a5d8c4b35471829b06baf7729
         }
     }

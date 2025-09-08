@@ -31,6 +31,7 @@ namespace TPLaboratorioUAI
         private void btnForm1_Click(object sender, EventArgs e)
         {
             if (form2 != null) form2.Close();
+            if (form1 != null) form1.Close();  // Nuevo
 
             form1 = new frmForm1();
             form1.MdiParent = this;
@@ -42,6 +43,7 @@ namespace TPLaboratorioUAI
         private void btnForm2_Click(object sender, EventArgs e)
         {
             if (form1 != null) form1.Close();
+            if (form2 != null) form2.Close();  // Nuevo
 
             form2 = new frmForm2();
             form2.MdiParent = this;
