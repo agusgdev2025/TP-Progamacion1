@@ -36,7 +36,7 @@ namespace TPLaboratorioUAI
             form1 = new frmForm1();
             form1.MdiParent = this;
             pnlRight.Controls.Add(form1);
-            form1.WindowState = FormWindowState.Maximized;
+            //form1.WindowState = FormWindowState.Maximized;
             form1.Show();
         }
 
@@ -48,7 +48,7 @@ namespace TPLaboratorioUAI
             form2 = new frmForm2();
             form2.MdiParent = this;
             pnlRight.Controls.Add(form2);
-            form2.WindowState = FormWindowState.Maximized;
+            //form2.WindowState = FormWindowState.Maximized;
             form2.Show();
         }
     }

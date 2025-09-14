@@ -34,6 +34,7 @@ namespace TPLaboratorioUAI
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            // Cargo los datos en el ListBox
             lstVacunacion.Items.Add($" Nombre y Apellido:  {txtNombre.Text}, {txtApellido.Text}");
             lstVacunacion.Items.Add($" Nro. Documento:  {ObtenerTipoDocumento()} {txtNroDocumento.Text}");
             lstVacunacion.Items.Add($" Fecha de Nacimiento:  {dtpFecNacimiento.Value.ToShortDateString()}");
@@ -44,16 +45,16 @@ namespace TPLaboratorioUAI
 
             string vacuna = string.Empty;
 
-            foreach (Control control in gbxVacunas.Controls)
+            foreach (Control control in gbxVacunas.Controls) // Recorro los controles del GroupBox 
             {
-                if (control is CheckBox checkBox && checkBox.Checked) 
+                if (control is CheckBox checkBox && checkBox.Checked) // Si el control es un CheckBox y está seleccionado
                 {
                     vacuna = $"      - {checkBox.Text}";
 
-                    if (checkBox.Name == "chkCovid" && checkBox.Checked)
+                    if (checkBox.Name == "chkCovid" && checkBox.Checked) // Si es la vacuna Covid
                         vacuna += $"  ( Dosis: {cboCovidDosis.Text} )";
                     
-                    if (checkBox.Name == "chkDobreBacteriana" && checkBox.Checked)
+                    if (checkBox.Name == "chkDobreBacteriana" && checkBox.Checked) // Si es la vacuna Doble Bacteriana
                         vacuna += $"  ( Última Dosis: {dtpDobleBacUltimaDosis.Value.ToShortDateString()} )";
 
                     lstVacunacion.Items.Add(vacuna);
@@ -66,7 +67,7 @@ namespace TPLaboratorioUAI
             txtNombre.Focus();
         }
 
-        private string ObtenerTipoDocumento()
+        private string ObtenerTipoDocumento() // Método para obtener el tipo de documento seleccionado
         {
             if (rdbDni.Checked) return "DNI";
             else if (rdbLe.Checked) return "LE";
@@ -75,7 +76,7 @@ namespace TPLaboratorioUAI
             else return "";
         }
 
-        private string ObtenerGenero()
+        private string ObtenerGenero() // Método para obtener el género seleccionado
         {
             if (rdbHombre.Checked) return rdbHombre.Text;
             else if (rdbMujer.Checked) return rdbMujer.Text;
@@ -84,9 +85,9 @@ namespace TPLaboratorioUAI
             else return "";
         }
 
-        private void chkCovid_CheckedChanged(object sender, EventArgs e)
+        private void chkCovid_CheckedChanged(object sender, EventArgs e) 
         {
-            if (chkCovid.Checked) cboCovidDosis.Enabled = true;
+            if (chkCovid.Checked) cboCovidDosis.Enabled = true; // Habilito el ComboBox si se selecciona la vacuna Covid
             else
             {
                 cboCovidDosis.Enabled = false;
@@ -96,7 +97,7 @@ namespace TPLaboratorioUAI
 
         private void chkDobreBacteriana_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkDobreBacteriana.Checked) dtpDobleBacUltimaDosis.Enabled = true;
+            if (chkDobreBacteriana.Checked) dtpDobleBacUltimaDosis.Enabled = true; // Habilito el DateTimePicker si se selecciona la vacuna Doble Bacteriana
             else
             {
                 dtpDobleBacUltimaDosis.Enabled = false;
@@ -114,7 +115,7 @@ namespace TPLaboratorioUAI
             cboLocalidad.SelectedIndex = -1;
             rdbHombre.Checked = true;
 
-            foreach (Control control in gbxVacunas.Controls)
+            foreach (Control control in gbxVacunas.Controls) // Recorro los controles del GroupBox y si es un CheckBox lo desmarco
             {
                 if (control is CheckBox checkBox)
                     checkBox.Checked = false;
