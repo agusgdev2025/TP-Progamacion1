@@ -260,6 +260,8 @@ namespace TPLaboratorioUAI
                 productoExiste.Cantidad = (int)numCantidad.Value;
                 int idx = productosSeleccionados.IndexOf(productoExiste);
                 productosSeleccionados.ResetItem(idx);
+
+                btnAgregarProducto.Text = "AGREGAR";
             }
             else // Si el producto no existe, agregarlo a la lista de productos seleccionados.-
             {
@@ -282,6 +284,7 @@ namespace TPLaboratorioUAI
             txtCodProducto.Text = string.Empty;
             txtProducto.Text = string.Empty;
             numCantidad.Enabled = false;
+            numCantidad.Value = 1;
             btnBuscarProducto.Focus();
         }
 
@@ -291,8 +294,7 @@ namespace TPLaboratorioUAI
             {
                 txtCodProducto.Text = item.CodProducto.ToString();
                 txtProducto.Text = item.Nombre;
-                numCantidad.Value = Math.Max(numCantidad.Minimum,
-                                      Math.Min(numCantidad.Maximum, item.Cantidad));
+                numCantidad.Value = item.Cantidad;
 
                 // Buscar el producto en el listado de productos para tener el precio unitario.-
                 productoSeleccionado = listadoProductos
@@ -301,6 +303,7 @@ namespace TPLaboratorioUAI
 
             numCantidad.Enabled = true;
             btnAgregarProducto.Enabled = true;
+            btnAgregarProducto.Text = "ACTUALIZAR";
             numCantidad.Focus();
         }
 
@@ -316,6 +319,7 @@ namespace TPLaboratorioUAI
                 if (resp == DialogResult.Yes)
                 {
                     productosSeleccionados.Remove(item);  
+                    dgvDetalleVenta.ClearSelection();
                 }
             }
 

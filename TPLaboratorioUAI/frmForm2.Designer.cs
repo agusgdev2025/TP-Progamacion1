@@ -266,9 +266,9 @@
             // 
             // btnAgregarProducto
             // 
-            btnAgregarProducto.Location = new Point(696, 23);
+            btnAgregarProducto.Location = new Point(678, 23);
             btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(71, 30);
+            btnAgregarProducto.Size = new Size(89, 30);
             btnAgregarProducto.TabIndex = 18;
             btnAgregarProducto.Text = "AGREGAR";
             btnAgregarProducto.UseVisualStyleBackColor = true;
